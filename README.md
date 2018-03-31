@@ -9,7 +9,7 @@
 * 扫描结果将保存在ok.txt文件中
 * 请使用python3.5版本运行
 
-result:
+result:<br>
 ![result](result.png)
 
 ## 安装依赖模块：
