@@ -89,7 +89,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     logo_code = 'IF8gXyAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX19fICAgICAgICAgICAgXyAgIF9fX18gICAgICAgICAgICAgICAgICAKKF8pIHxfXyAgIF9fXyAgXyBfXyAgIF9fXyBfICAgX3wgIF8gXCBfX18gIF8gX198IHxfLyBfX198ICBfX18gX18gXyBfIF9fICAKfCB8ICdfIFwgLyBfIFx8ICdfIFwgLyBfIFwgfCB8IHwgfF8pIC8gXyBcfCAnX198IF9fXF9fXyBcIC8gX18vIF9gIHwgJ18gXCAKfCB8IHwgfCB8IChfKSB8IHwgfCB8ICBfXy8gfF98IHwgIF9fLyAoXykgfCB8ICB8IHxfIF9fXykgfCAoX3wgKF98IHwgfCB8IHwKfF98X3wgfF98XF9fXy98X3wgfF98XF9fX3xcX18sIHxffCAgIFxfX18vfF98ICAgXF9ffF9fX18vIFxfX19cX18sX3xffCB8X3wKICAgICAgICAgICAgICAgICAgICAgICAgICB8X19fLyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK'
     print(b64decode(logo_code).decode())
-    print("Example：\npython3.5 portScan.py --ip 192.168.0.105 --port 20-3390 -t 100\npython3.5 portScan.py --ip www.ihoneysec.top --port 80,443,3306,3389,8080 \npython3.5 xingyuPortScan1.2.py -f ip.txt -t 100")
+    print("Example：\npython3.5 portScan.py --ip 192.168.0.105 --port 20-3390 -t 100\npython3.5 portScan.py --ip www.xxx.top --port 80,443,3306,3389,8080 \npython3.5 xingyuPortScan1.2.py -f ip.txt -t 100")
     print('-' * 64)
 
     portlist1 = args.port
@@ -112,7 +112,7 @@ if __name__ == '__main__':
 
     if args.ip:
         try:
-            ip_address(args.ip)
+            # ip_address(args.ip)
             dispatcher(ip=args.ip, max_thread=args.max_threads, portlist=portlist)
         except Exception as e:
             print(e)
