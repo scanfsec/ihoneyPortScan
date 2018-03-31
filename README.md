@@ -28,6 +28,6 @@
 	--ip 可以指定ip地址或者域名，会自动检测ip地址格式是否合法
 
 ## 使用样例：
-	python3.5 portScan.py --ip 192.168.0.105 --port 20-3390 -t 100
-	python3.5 portScan.py --ip www.xxx.top --port 80,443,3306,3389,8080 -t 100
-	python3.5 portScan.py -f ip.txt -t 100
+	python3.5 ihoneyPortScan.py --ip 192.168.0.105 --port 20-3390 -t 100
+	python3.5 ihoneyPortScan.py --ip www.xxx.top --port 80,443,3306,3389,8080 -t 100
+	python3.5 ihoneyPortScan.py -f ip.txt -t 100
