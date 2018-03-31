@@ -69,7 +69,6 @@ def dispatcher(ip_file=None, ip=None, max_thread=100, portlist=None):
             q.put(url)
 
     # print(q.__dict__['queue'])
-    print('-' * 64)
     print('队列大小：' + str(q.qsize()))
 
     threadl = [PortScan(q) for _ in range(max_thread)]
@@ -88,10 +87,9 @@ if __name__ == '__main__':
     parser.add_argument('--port', dest='port', nargs='?', type=str, help="Example: 80    80-89    80,443,3306,8080")
 
     args = parser.parse_args()
-    logo_code = 'IF9fX18gICAgICAgICAgICBfICAgX19fXyAgICAgICAgICAgICAgICAgIAp8ICBfIFwgX19fICBfIF9ffCB8Xy8gX19ffCAgX19fIF9fIF8gXyBfXyAgCnwgfF8pIC8gXyBcfCAnX198IF9fXF9fXyBcIC8gX18vIF9gIHwgJ18gXCAKfCAgX18vIChfKSB8IHwgIHwgfF8gX19fKSB8IChffCAoX3wgfCB8IHwgfAp8X3wgICBcX19fL3xffCAgIFxfX3xfX19fLyBcX19fXF9fLF98X3wgfF98CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK'
+    logo_code = 'IF8gXyAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX19fICAgICAgICAgICAgXyAgIF9fX18gICAgICAgICAgICAgICAgICAKKF8pIHxfXyAgIF9fXyAgXyBfXyAgIF9fXyBfICAgX3wgIF8gXCBfX18gIF8gX198IHxfLyBfX198ICBfX18gX18gXyBfIF9fICAKfCB8ICdfIFwgLyBfIFx8ICdfIFwgLyBfIFwgfCB8IHwgfF8pIC8gXyBcfCAnX198IF9fXF9fXyBcIC8gX18vIF9gIHwgJ18gXCAKfCB8IHwgfCB8IChfKSB8IHwgfCB8ICBfXy8gfF98IHwgIF9fLyAoXykgfCB8ICB8IHxfIF9fXykgfCAoX3wgKF98IHwgfCB8IHwKfF98X3wgfF98XF9fXy98X3wgfF98XF9fX3xcX18sIHxffCAgIFxfX18vfF98ICAgXF9ffF9fX18vIFxfX19cX18sX3xffCB8X3wKICAgICAgICAgICAgICAgICAgICAgICAgICB8X19fLyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK'
     print(b64decode(logo_code).decode())
-    print("Example：\npython3.5 portScan.py --ip 192.168.0.105 --port 20-3390 -t 100\npython3.5 portScan.py --ip www.ihoneysec.top --port 80,443,3306,3389,8080 -t 100\npython3.5 xingyuPortScan1.2.py -f ip.txt -t 100")
-
+    print("Example：\npython3.5 portScan.py --ip 192.168.0.105 --port 20-3390 -t 100\npython3.5 portScan.py --ip www.ihoneysec.top --port 80,443,3306,3389,8080 \npython3.5 xingyuPortScan1.2.py -f ip.txt -t 100")
     print('-' * 64)
 
     portlist1 = args.port
@@ -101,8 +99,7 @@ if __name__ == '__main__':
         elif '-' in portlist1:
             portlist = portlist1.split('-')
             tmpportlist = []
-            for i in range(int(portlist[0]), int(portlist[1]) + 1):
-                tmpportlist.append(i)
+            [tmpportlist.append(i) for i in range(int(portlist[0]), int(portlist[1]) + 1)]
             portlist = tmpportlist
         else:
             portlist = [portlist1]
@@ -111,7 +108,7 @@ if __name__ == '__main__':
                     873, 1025, 1433, 1521, 3128, 3306, 3311, 3312, 3389, 5432, 5900,
                     5984, 6082, 6379, 7001, 7002, 8000, 8080, 8081, 8090, 9000, 9090,
                     8888, 9200, 9300, 10000, 11211, 27017, 27018, 50000, 50030, 50070]
-    print('You do not specify a port, the default will scan the following port')
+        print('You do not specify a port, will only scan has set the default port')
 
     if args.ip:
         try:
